@@ -25,7 +25,7 @@ export const initTestDbEnvironment = async () => {
 
   echo(`Создаю схему БД ${TEST_SCHEMA}`);
   sql = `CREATE SCHEMA IF NOT EXISTS ${TEST_SCHEMA} AUTHORIZATION postgres;
-  comment on schema ${TEST_SCHEMA} is 'For tests of af-streams'`;
+  comment on schema ${TEST_SCHEMA} is 'For tests of af-streams-ts'`;
   await query(sql);
   echo(`OK!`);
 
