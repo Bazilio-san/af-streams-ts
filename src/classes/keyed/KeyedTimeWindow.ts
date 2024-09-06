@@ -157,13 +157,13 @@ export class KeyedTimeWindow<T, S = any> {
     });
 
     if (debug.enabled && removedFromAllTW.length) {
-      const winWidth = getTimeParamFromMillis(this.widthMillis, 'biggest');
+      const winWidth = getTimeParamFromMillis(this.widthMillis, { roundTo: 'biggest' });
       echo(`${m}Удалены устаревшее события (${lBlue}${removedFromAllTW.length}${m} шт) из окна [KeyedTimeWindow] winName: ${lBlue
       }${this.options.winName}${m} (width: ${winWidth})`);
       const inputTimes = removedFromAllTW.map(({ ts }) => ts);
       const minInputTs = Math.min(...inputTimes);
       const maxInputTs = Math.max(...inputTimes);
-      const minInterval = getTimeParamFromMillis(virtualTs - minInputTs, 'biggest');
+      const minInterval = getTimeParamFromMillis(virtualTs - minInputTs, { roundTo: 'biggest' });
       echo(`${m}\t min ts: ${lBlue}${millisTo.human.utc.z(minInputTs)}${m} / max ts: ${lBlue}${millisTo.human.utc.z(maxInputTs)}${m
       } /  vt: ${lBlue}${millisTo.human.utc.z(virtualTs)}${m} / period: ${lBlue}${minInterval}${m}`);
     }

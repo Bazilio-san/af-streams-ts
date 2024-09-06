@@ -2,6 +2,7 @@
   "$schema": "http://json.schemastore.org/tsconfig",
   "compileOnSave": true,
   "compilerOptions": {
+    "skipLibCheck": true,
     "lib": [
       "es2019",
       "esnext.bigint",
@@ -20,8 +21,13 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "ignoreDeprecations": "5.0",
     "outDir": "dist/cjs"
   },
   "include": [

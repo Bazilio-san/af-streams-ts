@@ -121,7 +121,7 @@ export const PARAMS: IStreamsParams = {
     if (!v) {
       return 0;
     }
-    const duration = getTimeParamFromMillis(v, 'biggest');
+    const duration = getTimeParamFromMillis(v, { roundTo: 'biggest' });
     const value = duration.split(' ')[0];
     return Number(value) || 0;
   },
@@ -131,7 +131,7 @@ export const PARAMS: IStreamsParams = {
     if (!v) {
       return this._timeStartBeforeUnit;
     }
-    const duration = getTimeParamFromMillis(v, 'biggest').split(' ');
+    const duration = getTimeParamFromMillis(v, { roundTo: 'biggest' }).split(' ');
     const value = Number(duration[0]) || 0;
     if (!value) {
       return this._timeStartBeforeUnit;

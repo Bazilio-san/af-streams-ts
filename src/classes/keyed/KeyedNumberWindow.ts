@@ -138,7 +138,7 @@ export class KeyedNumberWindow<T> {
       echo(`${m}Удалено ${lBlue}${removedWindowsCount}${m} опустевших окон [KeyedNumberWindow] winName: ${lBlue
       }${this.options.winName}`);
       if (maxTs) {
-        const minInterval = getTimeParamFromMillis(virtualTs - maxTs, 'biggest');
+        const minInterval = getTimeParamFromMillis(virtualTs - maxTs, { roundTo: 'biggest' });
         echo(`${m}\t max ts: ${lBlue}${millisTo.human.utc.z(maxTs)}${m} /  vt: ${lBlue}${millisTo.human.utc.z(virtualTs)}${m} / period: ${lBlue}${minInterval}${m}`);
       }
     }

@@ -158,14 +158,14 @@ export class KeyedSingleEventTimeWindow<T, S = any> {
       if (debugExact.enabled) {
         removed.forEach(([key, hashItem]) => {
           const { inputTs: inp, lastTs: lst } = hashItem;
-          const distance = getTimeParamFromMillis(lst - inp, 'biggest');
+          const distance = getTimeParamFromMillis(lst - inp, { roundTo: 'biggest' });
           echo(`${m}\t - key: ${lBlue}${padR(key, padLen)}${rs} / in ${m}${millisTo.human.utc.z(inp)}${rs} out ${m}${millisTo.human.utc.z(lst)}${rs} / ${g}${distance}`);
         });
       } else {
         const inputTimes = removed.map(([, hashItem]) => hashItem.inputTs);
         const minInputTs = Math.min(...inputTimes);
         const maxInputTs = Math.max(...inputTimes);
-        const minInterval = getTimeParamFromMillis(virtualTs - minInputTs, 'biggest');
+        const minInterval = getTimeParamFromMillis(virtualTs - minInputTs, { roundTo: 'biggest' });
         echo(`${m}\t min ts: ${lBlue}${millisTo.human.utc.z(minInputTs)}${m} / max ts: ${lBlue}${millisTo.human.utc.z(maxInputTs)}${m
         } /  vt: ${lBlue}${millisTo.human.utc.z(virtualTs)}${m} / period: ${lBlue}${minInterval}${m}`);
       }
